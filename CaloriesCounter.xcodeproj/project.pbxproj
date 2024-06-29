@@ -8,17 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		3268BF9F2C2AF04D00E1F765 /* CaloriesCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BF9E2C2AF04D00E1F765 /* CaloriesCounterApp.swift */; };
-		3268BFA12C2AF04D00E1F765 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFA02C2AF04D00E1F765 /* ContentView.swift */; };
+		3268BFA12C2AF04D00E1F765 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFA02C2AF04D00E1F765 /* InitialView.swift */; };
 		3268BFA32C2AF04E00E1F765 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3268BFA22C2AF04E00E1F765 /* Assets.xcassets */; };
 		3268BFA62C2AF04E00E1F765 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3268BFA52C2AF04E00E1F765 /* Preview Assets.xcassets */; };
+		3268BFAD2C2B00FD00E1F765 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFAC2C2B00FD00E1F765 /* CameraView.swift */; };
+		3268BFAF2C2B013700E1F765 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFAE2C2B013700E1F765 /* CameraModel.swift */; };
+		3268BFB12C2B10AE00E1F765 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFB02C2B10AE00E1F765 /* CameraPreview.swift */; };
+		3268BFB52C2C39DE00E1F765 /* AnalysingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFB42C2C39DE00E1F765 /* AnalysingView.swift */; };
+		3268BFB72C2C5CF400E1F765 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFB62C2C5CF400E1F765 /* DataLoader.swift */; };
+		3268BFBA2C2C5DA800E1F765 /* SwiftOpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 3268BFB92C2C5DA800E1F765 /* SwiftOpenAI */; };
+		3268BFBC2C2C650F00E1F765 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFBB2C2C650F00E1F765 /* DataManager.swift */; };
+		328A5C692C304EF500C021EB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328A5C682C304EF500C021EB /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3268BF9B2C2AF04D00E1F765 /* CaloriesCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaloriesCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3268BF9E2C2AF04D00E1F765 /* CaloriesCounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCounterApp.swift; sourceTree = "<group>"; };
-		3268BFA02C2AF04D00E1F765 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3268BFA02C2AF04D00E1F765 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		3268BFA22C2AF04E00E1F765 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3268BFA52C2AF04E00E1F765 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3268BFAC2C2B00FD00E1F765 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		3268BFAE2C2B013700E1F765 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		3268BFB02C2B10AE00E1F765 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		3268BFB42C2C39DE00E1F765 /* AnalysingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysingView.swift; sourceTree = "<group>"; };
+		3268BFB62C2C5CF400E1F765 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		3268BFBB2C2C650F00E1F765 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		328A5C682C304EF500C021EB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3268BFBA2C2C5DA800E1F765 /* SwiftOpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +51,9 @@
 		3268BF922C2AF04D00E1F765 = {
 			isa = PBXGroup;
 			children = (
+				328A5C682C304EF500C021EB /* AppConstants.swift */,
+				3268BFBB2C2C650F00E1F765 /* DataManager.swift */,
+				3268BFB62C2C5CF400E1F765 /* DataLoader.swift */,
 				3268BF9D2C2AF04D00E1F765 /* CaloriesCounter */,
 				3268BF9C2C2AF04D00E1F765 /* Products */,
 			);
@@ -52,7 +71,11 @@
 			isa = PBXGroup;
 			children = (
 				3268BF9E2C2AF04D00E1F765 /* CaloriesCounterApp.swift */,
-				3268BFA02C2AF04D00E1F765 /* ContentView.swift */,
+				3268BFA02C2AF04D00E1F765 /* InitialView.swift */,
+				3268BFAC2C2B00FD00E1F765 /* CameraView.swift */,
+				3268BFAE2C2B013700E1F765 /* CameraModel.swift */,
+				3268BFB02C2B10AE00E1F765 /* CameraPreview.swift */,
+				3268BFB42C2C39DE00E1F765 /* AnalysingView.swift */,
 				3268BFA22C2AF04E00E1F765 /* Assets.xcassets */,
 				3268BFA42C2AF04E00E1F765 /* Preview Content */,
 			);
@@ -83,6 +106,9 @@
 			dependencies = (
 			);
 			name = CaloriesCounter;
+			packageProductDependencies = (
+				3268BFB92C2C5DA800E1F765 /* SwiftOpenAI */,
+			);
 			productName = CaloriesCounter;
 			productReference = 3268BF9B2C2AF04D00E1F765 /* CaloriesCounter.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +137,9 @@
 				Base,
 			);
 			mainGroup = 3268BF922C2AF04D00E1F765;
+			packageReferences = (
+				3268BFB82C2C5DA800E1F765 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */,
+			);
 			productRefGroup = 3268BF9C2C2AF04D00E1F765 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +166,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3268BFA12C2AF04D00E1F765 /* ContentView.swift in Sources */,
+				3268BFB12C2B10AE00E1F765 /* CameraPreview.swift in Sources */,
+				328A5C692C304EF500C021EB /* AppConstants.swift in Sources */,
+				3268BFBC2C2C650F00E1F765 /* DataManager.swift in Sources */,
+				3268BFAD2C2B00FD00E1F765 /* CameraView.swift in Sources */,
+				3268BFB72C2C5CF400E1F765 /* DataLoader.swift in Sources */,
+				3268BFA12C2AF04D00E1F765 /* InitialView.swift in Sources */,
+				3268BFB52C2C39DE00E1F765 /* AnalysingView.swift in Sources */,
+				3268BFAF2C2B013700E1F765 /* CameraModel.swift in Sources */,
 				3268BF9F2C2AF04D00E1F765 /* CaloriesCounterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,12 +305,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CaloriesCounter/CaloriesCounter.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CaloriesCounter/Preview Content\"";
-				DEVELOPMENT_TEAM = WMM44HNRA4;
+				DEVELOPMENT_TEAM = YXAD2TUP98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = CaloriesCounter;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -285,8 +324,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = comdagostinoltda.CaloriesCounter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.classifier.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -298,12 +338,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CaloriesCounter/CaloriesCounter.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CaloriesCounter/Preview Content\"";
-				DEVELOPMENT_TEAM = WMM44HNRA4;
+				DEVELOPMENT_TEAM = YXAD2TUP98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = CaloriesCounter;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -314,8 +357,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = comdagostinoltda.CaloriesCounter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.classifier.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3268BFB82C2C5DA800E1F765 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jamesrochabrun/SwiftOpenAI";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3268BFB92C2C5DA800E1F765 /* SwiftOpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3268BFB82C2C5DA800E1F765 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */;
+			productName = SwiftOpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3268BF932C2AF04D00E1F765 /* Project object */;
 }
