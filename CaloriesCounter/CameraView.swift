@@ -10,7 +10,7 @@ import SwiftUI
 struct CameraView: View {
     
     @StateObject var camera = CameraModel()
-//    let classifierManager: ClassifierManager
+    let classifierManager: ClassifierManager
     
     var body: some View {
         NavigationView {
@@ -61,7 +61,7 @@ struct CameraView: View {
                         NavigationLink {
                             // destination view to navigation to
                             if let finalImage = camera.finalImage {
-                                AnalysingView(image: finalImage/*, classifierManager: classifierManager*/)
+                                AnalysingView(image: finalImage, classifierManager: classifierManager)
                             }
                         } label: {
                             Text("Analisar foto")

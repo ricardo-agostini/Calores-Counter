@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct CaloriesCounterApp: App {
     
-//    @State private var classifierManager = ClassifierManager()
+    @State private var classifierManager = ClassifierManager()
     
     var body: some Scene {
         WindowGroup {
-            CameraView(/*classifierManager: classifierManager*/)
+            CameraView(classifierManager: classifierManager)
         }
     }
 }

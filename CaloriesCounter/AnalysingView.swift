@@ -10,7 +10,7 @@ import SwiftUI
 struct AnalysingView: View {
     
     @State var image: CGImage
-//    let classifierManager: ClassifierManager
+    let classifierManager: ClassifierManager
     
     var body: some View {
         
@@ -19,9 +19,22 @@ struct AnalysingView: View {
         VStack {
             Image(uiImage: uiImage)
                 .resizable() // Permite que a imagem seja redimensionada
-                .aspectRatio(contentMode: .fit)
+                //.aspectRatio(contentMode: .fit)
                 .rotationEffect(Angle(degrees: 90))
             Text("passou")
+            if let foodInfo = classifierManager.caloriesValue {
+                
+                Text(foodInfo)
+                
+                
+                
+            } else {
+                ProgressView()
+            }
+
+        }
+        .task {
+            classifierManager.identify(image)
         }
     }
     

@@ -92,6 +92,7 @@ func setup() {
             DispatchQueue.main.async {
                 //withAnimation {
                     self.isTaken.toggle()
+                    self.finalImage = nil
                 //}
             }
         }
