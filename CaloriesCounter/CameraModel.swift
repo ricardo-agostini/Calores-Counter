@@ -24,7 +24,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     @Published var picData = Data(count: 0)
     
-    @Published var finalImage: UIImage?
+    @Published var finalImage: CGImage?
     
     func Check() {
         
@@ -64,6 +64,7 @@ func setup() {
             self.session.addInput(input)
         }
         
+        session.sessionPreset = .photo
         if self.session.canAddOutput(self.output) {
             self.session.addOutput(self.output)
         }
@@ -78,20 +79,10 @@ func setup() {
 
 
     func takePic() {
-        print("hello")
-        DispatchQueue.global(qos: .background).async {
-            print("hello2")
-            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-            self.session.stopRunning()
-            print("hello3")
-            DispatchQueue.main.async {
-
-                    self.isTaken.toggle()
-                print("hello4")
-
-            }
-            
-        }
+        self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+        //self.session.stopRunning()
+        print("hello3")
+        self.isTaken.toggle()
     }
     
     func reTake() {
@@ -106,8 +97,6 @@ func setup() {
         }
     }
     
-    
-    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         print("hello5")
         if error != nil {
@@ -118,19 +107,40 @@ func setup() {
         print(output)
         
         guard let imageData = photo.fileDataRepresentation() else{return}
-        
-        self.picData = imageData
-        print("gello")
-        savePic()
+        DispatchQueue.main.async {
+            self.picData = imageData
+            print("gello")
+            self.savePic()
+        }
+        self.session.stopRunning()
     }
     
     func savePic() {
         
         let image = UIImage(data: self.picData)
-        finalImage = image
+        
+        let newImage = convertUIImageToCGImage(input: image!)
+        
+        
+        
+        finalImage = newImage
         print("caiu aqui")
         
     }
     
+    func convertUIImageToCGImage(input: UIImage) -> CGImage! {
+        guard let ciImage = CIImage(image: input) else {
+            return nil
+        }
+        
+        let context = CIContext(options: nil)
+        return context.createCGImage(ciImage, from: ciImage.extent)
+    }
+    
+    
+    
 
 }
+
+
+

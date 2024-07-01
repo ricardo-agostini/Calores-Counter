@@ -9,14 +9,22 @@ import SwiftUI
 
 struct AnalysingView: View {
     
-    @State var image: UIImage
+    @State var image: CGImage
 //    let classifierManager: ClassifierManager
     
     var body: some View {
+        
+        let uiImage = UIImage(cgImage: image)
+        
         VStack {
-            Image(uiImage: image)
-            Text("vai se fuder")
+            Image(uiImage: uiImage)
+                .resizable() // Permite que a imagem seja redimensionada
+                .aspectRatio(contentMode: .fit)
+                .rotationEffect(Angle(degrees: 90))
+            Text("passou")
         }
     }
+    
+    
+    
 }
-
