@@ -10,7 +10,7 @@ import SwiftUI
 struct CameraView: View {
     
     @StateObject var camera = CameraModel()
-    let classifierManager: ClassifierManager
+    var classifierManager: ClassifierManager
     
     var body: some View {
         NavigationView {
@@ -62,16 +62,26 @@ struct CameraView: View {
                     }
                     else {
                         
-                        Button(action: {camera.reTake()}, label: {
-                            
+//                        Button(action: {camera.reTake()}, label: {
+//                            
+//                            Text("Cancel")
+//                                .tint(.white)
+//                                .font(.title3)
+//                                .fontWeight(.semibold)
+//                            
+//                            
+//                        })
+//                        .padding(.leading, 25)
+                        
+                        NavigationLink(destination: InitialView()) {
                             Text("Cancel")
                                 .tint(.white)
                                 .font(.title3)
                                 .fontWeight(.semibold)
-                            
-                            
-                        })
+                        }
                         .padding(.leading, 25)
+                        
+                        
                         
                         Spacer()
                         
