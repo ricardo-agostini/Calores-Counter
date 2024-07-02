@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324F44F92C3358C7001B5FBB /* ReadFoodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F44F82C3358C7001B5FBB /* ReadFoodResponse.swift */; };
+		324F44FB2C335DF9001B5FBB /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F44FA2C335DF9001B5FBB /* FoodModel.swift */; };
+		324F44FD2C337039001B5FBB /* ChartFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F44FC2C337039001B5FBB /* ChartFoodView.swift */; };
 		3268BF9F2C2AF04D00E1F765 /* CaloriesCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BF9E2C2AF04D00E1F765 /* CaloriesCounterApp.swift */; };
 		3268BFA12C2AF04D00E1F765 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268BFA02C2AF04D00E1F765 /* InitialView.swift */; };
 		3268BFA32C2AF04E00E1F765 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3268BFA22C2AF04E00E1F765 /* Assets.xcassets */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		324F44F82C3358C7001B5FBB /* ReadFoodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFoodResponse.swift; sourceTree = "<group>"; };
+		324F44FA2C335DF9001B5FBB /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		324F44FC2C337039001B5FBB /* ChartFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFoodView.swift; sourceTree = "<group>"; };
 		3268BF9B2C2AF04D00E1F765 /* CaloriesCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaloriesCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3268BF9E2C2AF04D00E1F765 /* CaloriesCounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCounterApp.swift; sourceTree = "<group>"; };
 		3268BFA02C2AF04D00E1F765 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
@@ -51,6 +57,9 @@
 		3268BF922C2AF04D00E1F765 = {
 			isa = PBXGroup;
 			children = (
+				324F44FC2C337039001B5FBB /* ChartFoodView.swift */,
+				324F44FA2C335DF9001B5FBB /* FoodModel.swift */,
+				324F44F82C3358C7001B5FBB /* ReadFoodResponse.swift */,
 				328A5C682C304EF500C021EB /* AppConstants.swift */,
 				3268BFBB2C2C650F00E1F765 /* DataManager.swift */,
 				3268BFB62C2C5CF400E1F765 /* DataLoader.swift */,
@@ -168,12 +177,15 @@
 			files = (
 				3268BFB12C2B10AE00E1F765 /* CameraPreview.swift in Sources */,
 				328A5C692C304EF500C021EB /* AppConstants.swift in Sources */,
+				324F44FB2C335DF9001B5FBB /* FoodModel.swift in Sources */,
+				324F44FD2C337039001B5FBB /* ChartFoodView.swift in Sources */,
 				3268BFBC2C2C650F00E1F765 /* DataManager.swift in Sources */,
 				3268BFAD2C2B00FD00E1F765 /* CameraView.swift in Sources */,
 				3268BFB72C2C5CF400E1F765 /* DataLoader.swift in Sources */,
 				3268BFA12C2AF04D00E1F765 /* InitialView.swift in Sources */,
 				3268BFB52C2C39DE00E1F765 /* AnalysingView.swift in Sources */,
 				3268BFAF2C2B013700E1F765 /* CameraModel.swift in Sources */,
+				324F44F92C3358C7001B5FBB /* ReadFoodResponse.swift in Sources */,
 				3268BF9F2C2AF04D00E1F765 /* CaloriesCounterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

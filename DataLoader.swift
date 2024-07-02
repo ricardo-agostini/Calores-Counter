@@ -31,7 +31,7 @@ final actor DataLoader {
         
             
   
-        let prompt = "Qual é o alimento na foto e quantas kcal ele tem?"
+        let prompt = "A imagem contém um alimento. Eu desejo saber algumas informações sobre o alimento presente na imagem. Eu quero que voce me de a resposta necessariamente no formato JSON que tenha um name, kcal (quantidade de calorias no alimento presente na imagem), protein (quantidade em gramas de proteína), carb (quantidade em gramas de carboidratos), fat (quantidade em gramas de gordura). Obs: nao quero que voce nao diga nada além do código JSON. Os valores numéricos precisam todos ser números inteiros"
         let messageContent: [ChatCompletionParameters.Message.ContentType.MessageContent] = [.text(prompt), .imageUrl(.init(url: localURL))]
         let parameters = ChatCompletionParameters(messages: [.init(role: .user, content: .contentArray(messageContent))], model: .gpt4o)
         let response = try await AppConstants.openAI.startChat(parameters: parameters)

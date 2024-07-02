@@ -14,49 +14,32 @@ struct CameraView: View {
     
     var body: some View {
         NavigationView {
-        ZStack {
-            
-            CameraPreview(camera: camera)
-                .ignoresSafeArea(.all,edges: .all)
-            
             VStack {
-                if camera.isTaken {
-                HStack {
-                    Spacer()
-                    
-                        Button(action: {camera.reTake()}, label: {
-                            Image(systemName: "arrow.triangle.2.circlepath.camera")
-                                .foregroundColor(.black)
-                                .padding()
-                                .background(Color.white)
-                                .clipShape(Circle())
-                        })
-                        .padding(.trailing, 10)
-                    }
-                }
+                
+                CameraPreview(camera: camera)
+                //                .ignoresSafeArea(.all,edges: .all)
                 
                 Spacer()
-                
+                ZStack {
+                    Color.black
+                        .ignoresSafeArea()
                 HStack {
                     
                     if camera.isTaken {
-//                        Button(action: {
-//                            
-//                            camera.isTaken.toggle()
-//                            //AnalysingView(image: camera.output)
-//                            
-//                            
-//                        }, label: {
-//                            Text("Analisar foto")
-//                            
-//                                .foregroundColor(.black)
-//                                .fontWeight(.semibold)
-//                                .padding(.vertical, 10)
-//                                .padding (.horizontal, 20)
-//                                .background (Color.white)
-//                                .clipShape (Capsule())
-//                            
-//                        }).padding (.leading)
+                        
+                        Button(action: {camera.reTake()}, label: {
+                            
+                            Text("Retake")
+                                .tint(.white)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            
+                        })
+                        .padding(.horizontal, 25)
+                        
+                        
+                        Spacer()
                         
                         NavigationLink {
                             // destination view to navigation to
@@ -64,32 +47,70 @@ struct CameraView: View {
                                 AnalysingView(image: finalImage, classifierManager: classifierManager)
                             }
                         } label: {
-                            Text("Analisar foto")
-                                .foregroundColor(.black)
-                                .fontWeight(.semibold)
-                                .padding(.vertical, 10)
-                                .padding (.horizontal, 20)
-                                .background (Color.white)
-                                .clipShape (Capsule())
 
-                        }.padding(.leading)
- 
+                            Text("Analyze")
+                                .tint(.white)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                        }.padding(.horizontal, 25)
+                        
+                        
+                        
+                        
+                        
                     }
                     else {
+                        
+                        Button(action: {camera.reTake()}, label: {
+                            
+                            Text("Cancel")
+                                .tint(.white)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            
+                        })
+                        .padding(.leading, 25)
+                        
+                        Spacer()
+                        
+                        
                         Button(action: camera.takePic,
                                label: {
                             
                             ZStack {
+                
+                                
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 60)
+                                
                                 Circle()
-                                    .fill(Color.white)
+                                    .stroke(.white, lineWidth: 3)
                                     .frame(width: 70, height: 70)
+                                
+                                
+                                
                             }
+                            
+                            
+                            
+                            
                         })
+                        Spacer()
+                        Spacer()
                     }
-                }.frame(height: 70)
-            }
+                }/*.frame(height: 70)*/
+                
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(height: 100)
+                
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .frame(height: 100)
+            
         }
-        .padding()
+        //.padding()
         .onAppear(perform: {
             camera.Check()
         })
@@ -98,3 +119,18 @@ struct CameraView: View {
     }
 }
 
+
+
+//                            Text("Analisar foto")
+//                                .foregroundColor(.black)
+//                                .fontWeight(.semibold)
+//                                .padding(.vertical, 10)
+//                                .padding (.horizontal, 20)
+//                                .background (Color.white)
+//                                .clipShape (Capsule())
+
+//                            Image(systemName: "arrow.triangle.2.circlepath.camera")
+//                                .foregroundColor(.black)
+//                                .padding()
+//                                .background(Color.white)
+//                                .clipShape(Circle())
