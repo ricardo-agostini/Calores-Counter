@@ -82,7 +82,11 @@ func setup() {
         self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
         //self.session.stopRunning()
         print("hello3")
+        
         self.isTaken.toggle()
+        
+        //Perigoso, talvez remover isso -> Ontem, dia 02/07 no fim do dia, eu tive que comentar esse stoprunning pq nao estava funcionando
+        //self.session.stopRunning()
     }
     
     func reTake() {
@@ -90,10 +94,10 @@ func setup() {
             self.session.startRunning()
             
             DispatchQueue.main.async {
-                //withAnimation {
+                withAnimation {
                     self.isTaken.toggle()
                     self.finalImage = nil
-                //}
+                }
             }
         }
     }

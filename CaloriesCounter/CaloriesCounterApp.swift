@@ -12,15 +12,12 @@ import SwiftData
 struct CaloriesCounterApp: App {
     
     @State private var classifierManager = ClassifierManager()
-    @StateObject private var stackPath = PathType()
     
     var body: some Scene {
         WindowGroup {
-            //CameraView(classifierManager: classifierManager)
             InitialView()
         }
         .modelContainer(for: FoodData.self)
-        .environmentObject(stackPath)
         
     }
 }

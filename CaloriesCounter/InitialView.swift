@@ -31,13 +31,21 @@ struct InitialView: View {
             
             Text("teste")
             
-            ForEach(foods) { food in
-                Text(food.name)
-                Text("\(Int(food.protein))g")
-                Text("\(Int(food.carb))g")
-                Text("\(Int(food.fat))g")
-                
+            HStack {
+                Text("Meals of the Day")
+                    .bold()
+                    .font(.system(size: 22))
+                    .padding(.top)
+                Spacer()
             }
+            
+            ForEach(foods) { food in
+                MealCard(name: food.name, kcal: food.kcal, protein: food.protein, carbs: food.carb, fat: food.fat)
+
+            }
+            
+            
+            
             
         }
         .padding()
@@ -54,12 +62,7 @@ struct InitialView: View {
 
     }
     
-//    func addSamples() {
-//        let food1 = FoodData(name: "macarrao", kcal: 200, protein: 40, carb: 40, fat: 32)
-//        let food2 = FoodData(name: "bife", kcal: 145, protein: 30, carb: 5, fat: 15)
-//        modelContext.insert(food1)
-//        modelContext.insert(food2)
-//    }
+
     
 }
 

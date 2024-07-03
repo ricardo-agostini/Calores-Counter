@@ -12,21 +12,25 @@ import AVFoundation
 struct CameraPreview: UIViewRepresentable {
     
     @ObservedObject var camera: CameraModel
+    let frame: CGRect
     
     func makeUIView(context: Context) -> UIView {
         
-        let view = UIView(frame: UIScreen.main.bounds)
+//        let view = UIView(frame: UIScreen.main.bounds)
+        let view = UIViewType(frame: frame)
+        
         
         camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
-        camera.preview.frame = view.frame
+        camera.preview.frame = frame
         // Your Own Properties...
         camera.preview.videoGravity = .resizeAspectFill
         view.layer.addSublayer (camera.preview)
         
         
-         DispatchQueue.global(qos: .background).async {
+         //DispatchQueue.global(qos: .background).async {
              camera.session.startRunning()
-         }
+         //}
+        
         
         return view
     }

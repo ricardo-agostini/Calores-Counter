@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CameraView: View {
     
+    
+    @State private var isNavigationInitialActive = false
     @StateObject var camera = CameraModel()
     var classifierManager: ClassifierManager
     
@@ -16,8 +18,11 @@ struct CameraView: View {
         NavigationView {
             VStack {
                 
-                CameraPreview(camera: camera)
-                //                .ignoresSafeArea(.all,edges: .all)
+                GeometryReader { geo in
+                CameraPreview(camera: camera, frame: geo.frame(in: .global))
+                        
+                }
+                .ignoresSafeArea()
                 
                 Spacer()
                 ZStack {
@@ -61,27 +66,33 @@ struct CameraView: View {
                         
                     }
                     else {
+
                         
-//                        Button(action: {camera.reTake()}, label: {
-//                            
-//                            Text("Cancel")
-//                                .tint(.white)
-//                                .font(.title3)
-//                                .fontWeight(.semibold)
-//                            
-//                            
-//                        })
-//                        .padding(.leading, 25)
+
                         
-                        NavigationLink(destination: InitialView()) {
-                            Text("Cancel")
-                                .tint(.white)
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                        }
-                        .padding(.leading, 25)
+                        Button(action: {
+                                        camera.session.stopRunning()
+                            
+                                        isNavigationInitialActive = true
+                                    }) {
+                                        Text("Cancel")
+                                            .tint(.white)
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                    }
+                                    .background(
+                                        NavigationLink(destination: InitialView(), isActive: $isNavigationInitialActive) {
+                                            EmptyView()
+                                        }
+                                        .hidden()
+                                    )
+                                    .padding(.leading, 25)
                         
                         
+                        
+                        
+                        
+
                         
                         Spacer()
                         
@@ -124,7 +135,8 @@ struct CameraView: View {
         .onAppear(perform: {
             camera.Check()
         })
-    }
+        
+    }.navigationBarBackButtonHidden(true)
         
     }
 }
