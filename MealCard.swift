@@ -25,11 +25,13 @@ struct MealCard: View {
                     VStack(alignment: .center, spacing: 8) {
                         Text(name)
                             .font(.headline)
+                            .fontWeight(.bold)
                              HStack {
                                  
                                  VStack {
-                                     Text("\(Int(kcal)) kcal")
+                                     Text("\(Int(kcal)) Kcal")
                                      Text("Total Calories")
+                                         .fontWeight(.semibold)
                                      
                                  }
                                  
@@ -40,30 +42,24 @@ struct MealCard: View {
                                          .foregroundStyle(Color.blue)
                                      Text("Protein")
                                          .foregroundStyle(Color.blue)
+                                         .fontWeight(.semibold)
                                      
                                  }
-                                 
-                                 
-                                 VStack {
-                                     Text("\(Int(protein))g")
-                                         .foregroundStyle(Color.blue)
-                                     Text("Protein")
-                                         .foregroundStyle(Color.blue)
-                                     
-                                 }
+
                                  Spacer()
                                  VStack {
                                      Text("\(Int(carbs))g")                                         .foregroundStyle(Color.red)
                                      Text("Carbs")
                                          .foregroundStyle(Color.red)
-                                     
+                                         .fontWeight(.semibold)
                                  }
                                  Spacer()
                                  VStack {
-                                     Text("\(Int(fat))g")                                         .foregroundStyle(Color.yellow)
+                                     Text("\(Int(fat))g")
+                                         .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
                                      Text("Fat")
-                                         .foregroundStyle(Color.yellow)
-                                     
+                                         .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
+                                         .fontWeight(.semibold)
                                  }
                         }
                     }
@@ -72,6 +68,7 @@ struct MealCard: View {
         }
         .background(Color.gray.opacity(0.2))
         .cornerRadius(8)
+        .shadow(radius: 10)
     }
 }
 

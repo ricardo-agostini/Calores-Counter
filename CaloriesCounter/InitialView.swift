@@ -20,16 +20,18 @@ struct InitialView: View {
         NavigationStack {
         VStack {
             
-            NavigationLink(destination: CameraView(classifierManager: classifierManager)) {
-                Text("Tirar uma foto")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-
+//            NavigationLink(destination: CameraView(classifierManager: classifierManager)) {
+//                Text("Tirar uma foto")
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .background(Color.blue)
+//                    .cornerRadius(8)
+//            }
             
-            Text("teste")
+            TotalDayCard(array: foods)
+            
+            
+            
             
             HStack {
                 Text("Meals of the Day")
@@ -43,18 +45,29 @@ struct InitialView: View {
                 MealCard(name: food.name, kcal: food.kcal, protein: food.protein, carbs: food.carb, fat: food.fat)
 
             }
-            
-            
-            
-            
+            Spacer()
         }
         .padding()
         .navigationTitle("MealsLog.AI")
 //        .toolbar {
-//            Button(action: addSamples, label: {
+//            Button(action: {}, label: {
 //                Text("Add Samples")
 //            })
 //        }
+         
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+
+                NavigationLink(destination: CameraView(classifierManager: classifierManager)) {
+                    Text("Add Meal")
+                }
+                
+                
+            }
+        }
+            
+            
+            
         .navigationBarBackButtonHidden(true)
             
     }
