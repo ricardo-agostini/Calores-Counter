@@ -15,7 +15,7 @@ struct ChartFoodView: View {
     
     
     var body: some View {
-                GroupBox {
+               // GroupBox {
         
         VStack(alignment: .leading)  {
             Text("Macronutrients")
@@ -25,12 +25,15 @@ struct ChartFoodView: View {
             Chart {
                 BarMark(x: .value("Type", "Protein"),
                         y: .value("Population", food.protein))
+                    .foregroundStyle(Color.blue)
                 
                 BarMark(x: .value("Type", "Carbohydrate"),
                         y: .value("Population", food.carb))
+                    .foregroundStyle(Color.red)
                 
                 BarMark(x: .value("Type", "Fat"),
                         y: .value("Population", food.fat))
+                    .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
                 
             }
             .aspectRatio(1, contentMode: .fit)
@@ -47,7 +50,8 @@ struct ChartFoodView: View {
                 }
             }
         }
-    }
+        .padding()
+    //}
     
     }
 

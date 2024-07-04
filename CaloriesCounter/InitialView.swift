@@ -12,71 +12,49 @@ import SwiftData
 struct InitialView: View {
     
     @State var classifierManager: ClassifierManager = ClassifierManager()
-    
-//    @Environment(\.modelContext) var modelContext
     @Query var foods: [FoodData]
     
     var body: some View {
         NavigationStack {
-        VStack {
             
-//            NavigationLink(destination: CameraView(classifierManager: classifierManager)) {
-//                Text("Tirar uma foto")
-//                    .foregroundColor(.white)
-//                    .padding()
-//                    .background(Color.blue)
-//                    .cornerRadius(8)
-//            }
-            
-            TotalDayCard(array: foods)
-            
-            
-            
-            
-            HStack {
-                Text("Meals of the Day")
-                    .bold()
-                    .font(.system(size: 22))
-                    .padding(.top)
-                Spacer()
-            }
-            
-            ForEach(foods) { food in
-                MealCard(name: food.name, kcal: food.kcal, protein: food.protein, carbs: food.carb, fat: food.fat)
+            List {
 
-            }
-            Spacer()
-        }
-        .padding()
-        .navigationTitle("MealsLog.AI")
-//        .toolbar {
-//            Button(action: {}, label: {
-//                Text("Add Samples")
-//            })
-//        }
-         
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-
-                NavigationLink(destination: CameraView(classifierManager: classifierManager)) {
-                    Text("Add Meal")
+                Section("Todays Macros"){
+                    TotalDayCard(total: sumTotal())
                 }
                 
-                
+                Section ("meals"){
+                    
+                    ForEach(foods) { food in
+                        MealCard(name: food.name, kcal: food.kcal, protein: food.protein, carbs: food.carb, fat: food.fat)
+                        
+                    }
+                }
             }
+            .navigationTitle("MealsLog.AI")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    
+                    NavigationLink(destination: CameraView(classifierManager: classifierManager)) {
+                        Text("Add Meal")
+                    }
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            
         }
-            
-            
-            
-        .navigationBarBackButtonHidden(true)
-            
-    }
-
-
     }
     
-
-    
+    func sumTotal() -> FoodData {
+        var total: FoodData = FoodData(name: "", kcal: 0, protein: 0, carb: 0, fat: 0)
+        for meal in foods {
+            total.kcal = total.kcal + meal.kcal
+            total.protein = total.protein + meal.protein
+            total.carb = total.carb + meal.carb
+            total.fat = total.fat + meal.fat
+        }
+        return total
+    }
 }
 
 #Preview {

@@ -14,11 +14,9 @@ struct NutrientData: Identifiable {
     var amount: Double
 }
 
-
 struct TotalChartView: View {
     
     var total: FoodData
-    
     
     var body: some View {
         let data = [
@@ -36,7 +34,13 @@ struct TotalChartView: View {
             .cornerRadius(5)
             .foregroundStyle(by: .value("Category", item.category))
         }
+        .frame(width: 250, height: 250)
         .scaledToFit()
-        .chartLegend(alignment: .center, spacing: 16)
+        .chartLegend(.hidden)
+        .chartForegroundStyleScale([
+            "Protein": .blue,
+            "Carb": .red,
+            "Fat": Color(red: 219/255, green: 177/255, blue: 39/255)
+        ])
     }
 }

@@ -30,52 +30,30 @@ struct AnalysingView: View {
             VStack {
                 Image(uiImage: uiImage)
                     .resizable()
-                    .cornerRadius(20)// Permite que a imagem seja redimensionada
-                //.aspectRatio(contentMode: .fit)
+                    .cornerRadius(20)
                     .rotationEffect(Angle(degrees: 90))
                     .scaledToFit()
-                    .frame(width: 400, height: 400) // Ajuste conforme necessário
-                // Define o raio da borda arredondada
-                    .shadow(radius: 10) // Opcional: Adiciona uma sombra à imagem
+                    .frame(width: 400, height: 400)
+                    .shadow(radius: 10)
                 
                 
                 if let foodInfo = classifierManager.caloriesValue {
                 } else {
+                    Spacer()
                     ProgressView()
+                    Spacer()
+                    Spacer()
+                    Spacer()
                 }
                 if exibir == true {
-                    Text(food.name)
+                    
                     Text("Esse alimento contém aproximadamente \(Int(food.kcal))kcal")
+                    
                     ChartFoodView(food: food)
                     
-//                    NavigationLink(destination: InitialView()) {
-//                        Text("Cadastrar Alimento")
-//                            .foregroundColor(.white)
-//                            .padding()
-//                            .background(Color.blue)
-//                            .cornerRadius(8)
-//                    }
-                    
-                    Button(action: {
-                                    saveFood()
-                                    isNavigationActive = true
-                                }) {
-                                    Text("Voltar para Tela 1")
-                                }
-                                .background(
-                                    NavigationLink(destination: InitialView(), isActive: $isNavigationActive) {
-                                        EmptyView()
-                                    }
-                                    .hidden()
-                                )
-                    
-                    
-                    
-                    
                 }
-                
-                Spacer()
             }
+            .padding()
             .task {
                 classifierManager.identify(image)
             }
@@ -90,11 +68,26 @@ struct AnalysingView: View {
                     exibir.toggle()
                 }
             }
-        }
-        
-
-        
-        
+            Spacer()
+            
+        }.padding()
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Your Meal")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    
+                    Button(action: {
+                        saveFood()
+                        isNavigationActive = true
+                    }) {Text("Add Meal")}
+                        .background(
+                            NavigationLink(destination: InitialView(), isActive: $isNavigationActive) {
+                                EmptyView()
+                            }
+                                .hidden()
+                        )
+                }
+            }
     }
     
     func saveFood() {
@@ -103,7 +96,7 @@ struct AnalysingView: View {
         foodData.carb = food.carb
         foodData.protein = food.protein
         foodData.fat = food.fat
-    
+        
         modelContext.insert(foodData)
     }
     

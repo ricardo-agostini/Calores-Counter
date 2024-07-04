@@ -9,17 +9,14 @@ import SwiftUI
 
 struct TotalDayCard: View {
     
-    
-    var array: [FoodData]
-    var total: FoodData = FoodData(name: "", kcal: 0, protein: 0, carb: 0, fat: 0)
+    var total: FoodData
     
     var body: some View {
         
-        
-        VStack {
-           
+        VStack(spacing: 8) {
+            
             Text("Total of Calories: \(Int(total.kcal)) Kcal")
-                .padding()
+                
             
             TotalChartView(total: total)
             
@@ -36,7 +33,7 @@ struct TotalDayCard: View {
                 Spacer()
                 
                 VStack {
-                    Text("\(Int(total.carb))g")                                         
+                    Text("\(Int(total.carb))g")
                         .foregroundStyle(Color.red)
                     Text("Carbs")
                         .foregroundStyle(Color.red)
@@ -52,29 +49,7 @@ struct TotalDayCard: View {
                         .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
                         .fontWeight(.semibold)
                 }
-                
-                
             }
-            .padding()
-            
-        }
-        .background(Color.gray.opacity(0.2))
-        .cornerRadius(8)
-        .onAppear(perform: {
-            sumTotal()
-        })
-        
-    }
-    
-    
-    func sumTotal() {
-        for meal in array {
-            total.kcal = total.kcal + meal.kcal
-            total.protein = total.protein + meal.protein
-            total.carb = total.carb + meal.carb
-            total.fat = total.fat + meal.fat
         }
     }
-    
-    
 }
