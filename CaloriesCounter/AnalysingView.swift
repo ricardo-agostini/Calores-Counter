@@ -26,51 +26,65 @@ struct AnalysingView: View {
     var body: some View {
         
         let uiImage = UIImage(cgImage: image)
-        ScrollView {
-            VStack {
+//        ScrollView {
+        List {
+            
+            
+            Section {
                 Image(uiImage: uiImage)
                     .resizable()
                     .cornerRadius(20)
                     .rotationEffect(Angle(degrees: 90))
                     .scaledToFit()
                     .frame(width: 400, height: 400)
-                    .shadow(radius: 10)
-                
+                    .listRowSeparator(.hidden)
+                if exibir {
+                    Text("This meal contains approximately \(Int(food.kcal)) Kcal")
+                        .listRowSeparator(.hidden)
+                }
+            }
+                .listRowBackground(Color.clear)
                 
                 if let foodInfo = classifierManager.caloriesValue {
                 } else {
-                    Spacer()
-                    ProgressView()
-                    Spacer()
-                    Spacer()
-                    Spacer()
+                    Section {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                            Spacer()
+                        }
+                    }.listRowBackground(Color.clear)
                 }
-                if exibir == true {
-                    
-                    Text("Esse alimento contém aproximadamente \(Int(food.kcal))kcal")
-                    
+            if exibir == true {
+                Section(header:
+                            Text("Meal Macros")
+                    .font(.title3) // Ajuste o tamanho da fonte aqui
+                    .foregroundColor(.black)
+                                .fontWeight(.bold) // Ajuste o peso da fonte aqui
+                    .textCase(nil)
+                        ) {
+                    Text("The Chart bellow shows the quantity in grams of each macronutrient present in the meal in the detected image")
+                        .frame(alignment: .leading)
                     ChartFoodView(food: food)
-                    
                 }
+                
             }
-            .padding()
-            .task {
-                classifierManager.identify(image)
-            }
-            .onChange(of: classifierManager.caloriesValue) { newValue in
-                if let value = newValue {
-                    
-                    let json = readData.extractJSONContent(from: value)
-                    
-                    print(json)
-                    food = readData.readData(gptResponse: json) ?? Food(name: "errei", kcal: 0, protein: 0, carb: 0, fat: 0)
-                    print(food)
-                    exibir.toggle()
-                }
-            }
-            Spacer()
             
-        }.padding()
+        }
+        .task {
+            classifierManager.identify(image)
+        }
+        .onChange(of: classifierManager.caloriesValue) { newValue in
+            if let value = newValue {
+                
+                let json = readData.extractJSONContent(from: value)
+                
+                print(json)
+                food = readData.readData(gptResponse: json) ?? Food(name: "errei", kcal: 0, protein: 0, carb: 0, fat: 0)
+                print(food)
+                exibir.toggle()
+            }
+        }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Your Meal")
             .toolbar {

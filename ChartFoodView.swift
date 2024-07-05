@@ -18,9 +18,9 @@ struct ChartFoodView: View {
                // GroupBox {
         
         VStack(alignment: .leading)  {
-            Text("Macronutrients")
-                .font(.callout)
-                .foregroundStyle(.secondary)
+//            Text("Macronutrients")
+//                .font(.callout)
+//                .foregroundStyle(.secondary)
             
             Chart {
                 BarMark(x: .value("Type", "Protein"),
@@ -37,7 +37,7 @@ struct ChartFoodView: View {
                 
             }
             .aspectRatio(1, contentMode: .fit)
-            .padding()
+            //.padding()
             .chartYAxis {
                 AxisMarks(position: .leading, values: .automatic) { value in
                     AxisGridLine(centered: true, stroke: StrokeStyle(lineWidth: 1))
@@ -50,7 +50,7 @@ struct ChartFoodView: View {
                 }
             }
         }
-        .padding()
+        //.padding()
     //}
     
     }
