@@ -40,10 +40,14 @@ struct AnalysingView: View {
                     .listRowSeparator(.hidden)
                 if exibir {
                     Text("This meal contains approximately \(Int(food.kcal)) Kcal")
+                        .fontDesign(.rounded)
                         .listRowSeparator(.hidden)
+                        .frame(alignment: .center)
                 }
             }
                 .listRowBackground(Color.clear)
+
+            
                 
                 if let foodInfo = classifierManager.caloriesValue {
                 } else {
@@ -65,6 +69,7 @@ struct AnalysingView: View {
                         ) {
                     Text("The Chart bellow shows the quantity in grams of each macronutrient present in the meal in the detected image")
                         .frame(alignment: .leading)
+                        .fontDesign(.rounded)
                     ChartFoodView(food: food)
                 }
                 

@@ -25,6 +25,7 @@ struct CameraView: View {
                 .ignoresSafeArea()
                 
                 Spacer()
+                
                 ZStack {
                     Color.black
                         .ignoresSafeArea()
@@ -43,7 +44,6 @@ struct CameraView: View {
                         })
                         .padding(.horizontal, 25)
                         
-                        
                         Spacer()
                         
                         NavigationLink {
@@ -59,17 +59,10 @@ struct CameraView: View {
                                 .fontWeight(.semibold)
                             
                         }.padding(.horizontal, 25)
-                        
-                        
-                        
-                        
-                        
+
                     }
                     else {
 
-                        
-
-                        
                         Button(action: {
                                         camera.session.stopRunning()
                             
@@ -88,14 +81,7 @@ struct CameraView: View {
                                     )
                                     .padding(.leading, 25)
                         
-                        
-                        
-                        
-                        
-
-                        
                         Spacer()
-                        
                         
                         Button(action: camera.takePic,
                                label: {
@@ -110,14 +96,9 @@ struct CameraView: View {
                                 Circle()
                                     .stroke(.white, lineWidth: 3)
                                     .frame(width: 70, height: 70)
-                                
-                                
-                                
+
                             }
-                            
-                            
-                            
-                            
+  
                         })
                         Spacer()
                         Spacer()

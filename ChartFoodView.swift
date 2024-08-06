@@ -29,11 +29,11 @@ struct ChartFoodView: View {
                 
                 BarMark(x: .value("Type", "Carbohydrate"),
                         y: .value("Population", food.carb))
-                    .foregroundStyle(Color.red)
+                    .foregroundStyle(Color.green)
                 
                 BarMark(x: .value("Type", "Fat"),
                         y: .value("Population", food.fat))
-                    .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
+                .foregroundStyle(Color.red)
                 
             }
             .aspectRatio(1, contentMode: .fit)

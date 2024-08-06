@@ -19,44 +19,76 @@ struct MealCard: View {
     var body: some View {
         VStack {
             
-            VStack(alignment: .center, spacing: 8) {
+            VStack(alignment: .leading, spacing: 16) {
                 Text(name)
                     .font(.headline)
                     .fontWeight(.bold)
+                    .font(.system(size: 16))
                 HStack {
-                    
-                    VStack {
-                        Text("\(Int(kcal)) Kcal")
+                    VStack(alignment: .leading) {
                         Text("Total Calories")
                             .fontWeight(.semibold)
-                        
+                            .font(.system(size: 14))
+                        HStack(spacing: 4) {
+                            Text("\(Int(kcal))")
+                                .fontWeight(.bold)
+                                .fontDesign(.rounded)
+                            Text("Kcal")
+                                .fontWeight(.semibold)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(Color.gray)
+                        }
                     }
                     
                     Spacer()
                     
-                    VStack {
-                        Text("\(Int(protein))g")
-                            .foregroundStyle(Color.blue)
+                    VStack(alignment: .leading) {
                         Text("Protein")
-                            .foregroundStyle(Color.blue)
                             .fontWeight(.semibold)
-                        
+                            .font(.system(size: 14))
+                            .foregroundStyle(Color.blue)
+                        HStack(spacing: 4) {
+                            Text("\(Int(protein))")
+                                .fontWeight(.bold)
+                                .fontDesign(.rounded)
+                            Text("g")
+                                .fontWeight(.semibold)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(Color.gray)
+                        }
                     }
                     
                     Spacer()
-                    VStack {
-                        Text("\(Int(carbs))g")                                         .foregroundStyle(Color.red)
+                    VStack(alignment: .leading) {
                         Text("Carbs")
-                            .foregroundStyle(Color.red)
                             .fontWeight(.semibold)
+                            .font(.system(size: 14))
+                            .foregroundStyle(Color.green)
+                        HStack(spacing: 4) {
+                            Text("\(Int(carbs))")                        .fontWeight(.bold)
+                                .fontDesign(.rounded)
+                            Text("g")
+                                .fontWeight(.semibold)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(Color.gray)
+                        }
+
                     }
                     Spacer()
-                    VStack {
-                        Text("\(Int(fat))g")
-                            .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
+                    VStack(alignment: .leading) {
                         Text("Fat")
-                            .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
                             .fontWeight(.semibold)
+                            .font(.system(size: 14))
+                            .foregroundStyle(Color.red)
+                        HStack(spacing: 4) {
+                            Text("\(Int(fat))")
+                                .fontWeight(.bold)
+                                   .fontDesign(.rounded)
+                            Text("g")
+                                .fontWeight(.semibold)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(Color.gray)
+                        }
                     }
                 }
             }
@@ -68,5 +100,5 @@ struct MealCard: View {
 }
 
 #Preview {
-    MealCard(name: "arroz", kcal: 2, protein: 2, carbs: 2, fat: 2)
+    MealCard(name: "arroz", kcal: 200, protein: 2, carbs: 2, fat: 2)
 }

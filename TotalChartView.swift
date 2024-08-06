@@ -39,8 +39,8 @@ struct TotalChartView: View {
         .chartLegend(.hidden)
         .chartForegroundStyleScale([
             "Protein": .blue,
-            "Carb": .red,
-            "Fat": Color(red: 219/255, green: 177/255, blue: 39/255)
+            "Carb": .green,
+            "Fat": .red/*Color(red: 135/255, green: 111/255, blue: 12/255)*/
         ])
     }
 }

@@ -14,41 +14,106 @@ struct TotalDayCard: View {
     var body: some View {
         
         VStack(spacing: 8) {
-            
-            Text("Total of Calories: \(Int(total.kcal)) Kcal")
+            HStack(spacing: 4) {
+                Text("Total of Calories:")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 16))
+                HStack(spacing: 4) {
+                Text("\(Int(total.kcal))")
+                    .fontWeight(.bold)
+                    .fontDesign(.rounded)
+                Text("Kcal")
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
+                    .foregroundStyle(Color.gray)
+            }
                 
-            
+            }
+
             TotalChartView(total: total)
             
             HStack {
-                VStack {
-                    Text("\(Int(total.protein))g")
-                        .foregroundStyle(Color.blue)
+//                VStack {
+//                    Text("\(Int(total.protein))g")
+//                        .foregroundStyle(Color.blue)
+//                    Text("Protein")
+//                        .foregroundStyle(Color.blue)
+//                        .fontWeight(.semibold)
+//                    
+//                }
+                
+                VStack(alignment: .leading) {
                     Text("Protein")
+                        .fontWeight(.semibold)
+                        .font(.system(size: 14))
                         .foregroundStyle(Color.blue)
-                        .fontWeight(.semibold)
-                    
+                    HStack(spacing: 4) {
+                        Text("\(Int(total.protein))")
+                            .fontWeight(.bold)
+                               .fontDesign(.rounded)
+                        Text("g")
+                            .fontWeight(.semibold)
+                            .fontDesign(.rounded)
+                            .foregroundStyle(Color.gray)
+                    }
                 }
-                
+
                 Spacer()
                 
-                VStack {
-                    Text("\(Int(total.carb))g")
-                        .foregroundStyle(Color.red)
+//                VStack {
+//                    Text("\(Int(total.carb))g")
+//                        .foregroundStyle(Color.red)
+//                    Text("Carbs")
+//                        .foregroundStyle(Color.red)
+//                        .fontWeight(.semibold)
+//                }
+                
+                VStack(alignment: .leading) {
                     Text("Carbs")
-                        .foregroundStyle(Color.red)
                         .fontWeight(.semibold)
+                        .font(.system(size: 14))
+                        .foregroundStyle(Color.green)
+                    HStack(spacing: 4) {
+                        Text("\(Int(total.carb))")
+                            .fontWeight(.bold)
+                            .fontDesign(.rounded)
+                        Text("g")
+                            .fontWeight(.semibold)
+                            .fontDesign(.rounded)
+                            .foregroundStyle(Color.gray)
+                    }
                 }
+                
                 
                 Spacer()
                 
-                VStack {
-                    Text("\(Int(total.fat))g")
-                        .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
+//                VStack {
+//                    Text("\(Int(total.fat))g")
+//                        .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
+//                    Text("Fat")
+//                        .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
+//                        .fontWeight(.semibold)
+//                }
+                
+                VStack(alignment: .leading) {
                     Text("Fat")
-                        .foregroundStyle(Color(red: 219/255, green: 177/255, blue: 39/255))
                         .fontWeight(.semibold)
+                        .font(.system(size: 14))
+                        .foregroundStyle(Color.red)
+                    HStack(spacing: 4) {
+                        Text("\(Int(total.fat))")
+                            .fontWeight(.bold)
+                               .fontDesign(.rounded)
+                        Text("g")
+                            .fontWeight(.semibold)
+                            .fontDesign(.rounded)
+                            .foregroundStyle(Color.gray)
+                    }
                 }
+                
+                
+                
+                
             }
         }
     }
