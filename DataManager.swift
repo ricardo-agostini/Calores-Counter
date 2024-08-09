@@ -29,6 +29,7 @@ final class ClassifierManager {
             
             let calories = try await classifierDataLoader.identify(fromImage: image)
             self.caloriesValue = calories
+            print(caloriesValue!)
         }
     }
     
